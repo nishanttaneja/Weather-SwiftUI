@@ -12,7 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            BackgroundView(isNight: $isNight)
+            BackgroundView(isNight: isNight)
             VStack {
                 CityTextView(title: "Cupertino, CA")
                 MainWeatherStatusView(imageName: isNight ? "moon.stars.fill" : "cloud.sun.fill", temp: 76)
@@ -43,7 +43,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct BackgroundView: View {
-    @Binding var isNight: Bool
+    var isNight: Bool
     
     var body: some View {
         LinearGradient(colors: [isNight ? .black : .blue, isNight ? .gray : .init("lightBlue")], startPoint: .topLeading, endPoint: .bottomTrailing)
